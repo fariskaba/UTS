@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pendaftaran Pendakian Gunung Wilis</title>
+    <link rel="stylesheet" href="Pendakian.css">
+    <script src="Pendakian.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pendaftaran Pendakian Gunung Wilis</h1>
+            <nav>
+                <ul class="dropdown">
+                    <li><a href="Pendakian.html">Home</a></li>
+                    <li>
+                        <a href="#">Info Pendakian</a>
+                        <ul class="submenu">
+                            <li><a href="Jalur.html">Jalur Pendakian</a></li>
+                            <li><a href="Persyaratan.html">Persyaratan</a></li>
+                            <li><a href="Peraturan.html">Peraturan Pendakian</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="Pendaftaran.html">Daftar Sekarang</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="pendaftaran-form">
+            <h2>Form Pendaftaran Pendakian Gunung Wilis</h2>
+            <form id="pendaftaran-form" action="submit_form.php" method="POST">
+                <div class="form-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Masukkan email">
+                </div>
+                <div class="form-group">
+                    <label for="telepon">Nomor Telepon</label>
+                    <input type="tel" id="telepon" name="telepon" required placeholder="Masukkan nomor telepon">
+                </div>
+                <div class="form-group">
+                    <label for="jalur">Pilih Jalur Pendakian</label>
+                    <select id="jalur" name="jalur" required>
+                        <option value="liman-kare">Jalur Pendakian Liman via Kare</option>
+                        <option value="liman-pudak-wetan">Jalur Pendakian Liman via Pudak Wetan Ponorogo</option>
+                        <option value="limas-sekartaji">Jalur Pendakian Limas via Sekartaji</option>
+                        <option value="limas-taman-kelir">Jalur Pendakian Limas via Taman Kelir</option>
+                        <option value="jontani-desa-bareng">Jalur Pendakian Jontani via Desa Bareng</option>
+                        <option value="argokelono-salam-judeg">Jalur Pendakian Argokelono via Salam Judeg</option>
+                        <option value="wilis-mojo-kediri">Jalur Pendakian Wilis via Mojo Kediri</option>
+                        <option value="wilis-desa-sendang">Jalur Pendakian Wilis via Desa Sendang</option>
+                        <option value="wilis-jurang-senggani">Jalur Pendakian Wilis via Jurang Senggani</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Daftar Sekarang</button>
+            </form>
+
+            <!-- Tombol Oke yang muncul setelah pendaftaran sukses -->
+            <div id="success-message" style="display:none;">
+                <p>Pendaftaran Anda berhasil!</p>
+                <button type="button" id="btn-oke" class="btn">Oke</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Pendaftaran Gunung Wilis. Dibuat oleh Fariska Brilian.</p>
+    </footer>
+
+    <script>
+        document.getElementById("pendaftaran-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Mencegah pengiriman form untuk simulasi pendaftaran sukses
+
+            // Menampilkan pesan sukses dan tombol Oke
+            document.getElementById("pendaftaran-form").style.display = "none";  // Sembunyikan form
+            document.getElementById("success-message").style.display = "block";  // Tampilkan pesan sukses dan tombol Oke
+        });
+
+        // Event listener untuk tombol "Oke"
+        document.getElementById("btn-oke").addEventListener("click", function() {
+            // Arahkan pengguna kembali ke halaman utama setelah klik "Oke"
+            window.location.href = "Pendakian.html";  // Mengarahkan ke halaman utama
+        });
+    </script>
+</body>
+</html>
